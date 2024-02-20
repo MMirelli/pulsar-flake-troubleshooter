@@ -29,4 +29,4 @@ pulsar-flake-utils/fix-21556/data/testout.txt
 
 4. The differences are stored in `pulsar-flake-utils/fix-21556/data/testout-diff.txt`
 
-> Examples of runs I have done are also in `pulsar-flake-utils/fix-21556/data`
+> Examples of runs I have done are also in `pulsar-flake-utils/fix-21556/data`, I computed those on "Release 3.0.2" - `12c92fed78`.
