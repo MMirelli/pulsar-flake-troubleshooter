@@ -1,0 +1,26 @@
+Diffing data/failure6-expected.json data/failure6-actual.json by assign.*brk_lb_assign_broker_breakdown_total
+Diffing data/failure6-expected.json data/failure6-actual.json by bundlesSplit.*brk_lb_bundles_split_breakdown_total
+5c5
+< {"dimensions":[{"broker":"localhost", "metric":"bundlesSplit", "reason":"Topics", "result":"Success"}], "metrics":[{"brk_lb_bundles_split_breakdown_total":1}]},
+---
+> {"dimensions":[{"broker":"localhost", "metric":"bundlesSplit", "reason":"Topics", "result":"Success"}], "metrics":[{"brk_lb_bundles_split_breakdown_total":1}]}
+Diffing data/failure6-expected.json data/failure6-actual.json by bundlesSplit.*brk_lb_bundles_split_total
+Diffing data/failure6-expected.json data/failure6-actual.json by bundleUnloading.*brk_lb_resource_usage_stats
+Diffing data/failure6-expected.json data/failure6-actual.json by bundleUnloading.*brk_lb_unload_broker_breakdown_total
+Diffing data/failure6-expected.json data/failure6-actual.json by bundleUnloading.*brk_lb_unload_broker_total
+Diffing data/failure6-expected.json data/failure6-actual.json by loadBalancing.*brk_lb_bandwidth_in_usage
+Diffing data/failure6-expected.json data/failure6-actual.json by loadBalancing.*brk_lb_resource_usage
+Diffing data/failure6-expected.json data/failure6-actual.json by sunitStateChn.*brk_sunit_state_chn_cleanup_ops_total
+Diffing data/failure6-expected.json data/failure6-actual.json by sunitStateChn.*brk_sunit_state_chn_event_publish_ops_total
+Diffing data/failure6-expected.json data/failure6-actual.json by sunitStateChn.*brk_sunit_state_chn_inactive_broker_cleanup_ops_total
+Diffing data/failure6-expected.json data/failure6-actual.json by sunitStateChn.*brk_sunit_state_chn_orphan_su_cleanup_ops_total
+Diffing data/failure6-expected.json data/failure6-actual.json by sunitStateChn.*brk_sunit_state_chn_owner_lookup_total
+10c10
+< {"dimensions":[{"broker":"localhost", "metric":"sunitStateChn", "result":"Total", "state":"Free"}], "metrics":[{"brk_sunit_state_chn_owner_lookup_total":3}]}
+---
+> {"dimensions":[{"broker":"localhost", "metric":"sunitStateChn", "result":"Total", "state":"Free"}], "metrics":[{"brk_sunit_state_chn_owner_lookup_total":3}]},
+12c12
+< {"dimensions":[{"broker":"localhost", "metric":"sunitStateChn", "result":"Total", "state":"Owned"}], "metrics":[{"brk_sunit_state_chn_owner_lookup_total":5}]},
+---
+> {"dimensions":[{"broker":"localhost", "metric":"sunitStateChn", "result":"Total", "state":"Owned"}], "metrics":[{"brk_sunit_state_chn_owner_lookup_total":6}]},
+Diffing data/failure6-expected.json data/failure6-actual.json by sunitStateChn.*brk_sunit_state_chn_subscribe_ops_total
