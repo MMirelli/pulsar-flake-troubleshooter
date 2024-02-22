@@ -6,7 +6,7 @@ if [[ -z $PULSAR_DEV_DIR ]]; then
 fi
 
 # pft_run_test_until_fails <pulsar_flaky_test_issue_id>
-function pft_run_test_until_fails(){
+function pft_run_flaky_until_fails_by_issue_id(){
     local issue_id="$1"
     mkdir --parents "${SCRIPT_DIR}/$issue_id"
     (
