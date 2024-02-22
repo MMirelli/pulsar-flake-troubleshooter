@@ -16,4 +16,5 @@ function pft_run_test_until_fails(){
 			sed -e 's/Flaky-test: //' -e 's/.*\.//')
 	echo "Issue $issue_id is about $test_name in ${test_file_name}.java"
     )
+    mkdir --parents "${SCRIPT_DIR}/$issue_id"
 }
