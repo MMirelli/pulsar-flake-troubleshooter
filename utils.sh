@@ -39,3 +39,14 @@ function pft_run_flaky_until_fails_by_issue_id(){
 	} |  tee -a "${SCRIPT_DIR}/$issue_id/failure_trace_$((count_of_failure_traces + 1)).txt"
     )
 }
+
+function pft_count_loops_before_failure(){
+    local issue_id="$1"
+    local failure_trace_id="$2"
+    grep -c -- '----------- LOOP' "${SCRIPT_DIR}/$issue_id/failure_trace_${failure_trace_id}.txt"
+}
+
+function pft_count_number_of_failures(){
+    local issue_id="$1"
+    ls -l "${SCRIPT_DIR}/$issue_id"/failure_trace_*.txt | wc -l
+}
