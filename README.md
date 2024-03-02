@@ -14,3 +14,4 @@ Scripts assume the following are installed in your system:
 1. pulsar-contributor-toolbox - https://github.com/lhotari/pulsar-contributor-toolbox/
 2. emacs - https://www.gnu.org/software/emacs/
 3. GitHub CLI - https://cli.github.com/
+4. jq - https://jqlang.github.io/jq/
