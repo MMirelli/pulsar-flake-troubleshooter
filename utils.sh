@@ -50,3 +50,38 @@ function pft_count_number_of_failures(){
     local issue_id="$1"
     ls -l "${SCRIPT_DIR}/$issue_id"/failure_trace_*.txt | wc -l
 }
+
+function pft_container_logs(){
+    local container_id="$1"
+    local container_type=$(docker container ls |
+			       grep "$container_id" |
+			       awk '{print $3}' |
+			       sed -e 's/.*run-//' -e 's/\.sh//' -e 's/"//g')
+    docker container exec -it "$container_id" bash -c "tail -f /var/log/pulsar/${container_type}.log"
+}
+
+function pft_download_pulsar_admin(){
+    local input_tag="${1}"
+    # this allows to catch pulsar_version from the 
+    exec 3>&1
+    local pulsar_version=$(
+	cd $PULSAR_DEV_DIR
+	local pulsar_tag="${input_tag:-$(gh release list --limit 1 | awk '{print $1}')}"
+	local pulsar_version="${pulsar_tag/v}"
+	if [[ $(ls -d /tmp/pulsar-* 2> /dev/null | grep -c "$pulsar_version") -eq 0 ]]; then
+	    echo "Downloading $pulsar_tag" >&3
+            gh release download "$pulsar_tag" --archive=tar.gz >&3
+	    tar -xf "$PULSAR_DEV_DIR/pulsar-${pulsar_version}.tar.gz" -C /tmp
+	    rm "$PULSAR_DEV_DIR/pulsar-${pulsar_version}.tar.gz"
+	else
+	    echo "Pulsar $pulsar_tag cached" >&3
+	fi
+	echo "$pulsar_version"
+	  )
+    # we keep adding to update to the latest pulsar release pulsar-admin
+    echo "Adding pulsar-admin to PATH"
+    export PATH="/tmp/pulsar-$pulsar_version/bin:$PATH"
+    echo PATH=$PATH
+    pulsar-admin -v
+}
+
